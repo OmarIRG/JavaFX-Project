@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<VBox xmlns="http://javafx.com/javafx/8"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.social_media.controller.ProfileController"
+      spacing="10" alignment="CENTER">
+
+    <Label text="Profile Screen"/>
+
+    <TextField fx:id="fullNameField" promptText="Full Name"/>
+    <TextArea fx:id="bioArea" promptText="Bio"/>
+    <ImageView fx:id="profileImageView" fitWidth="120" preserveRatio="true"/>
+
+    <Button text="Choose Picture" onAction="#handleChooseImage"/>
+    <Button text="Save Profile" onAction="#handleSaveProfile"/>
+
+    <Separator/>
+
+    <Button text="Go to Posts" onAction="#handleGoToPosts"/>
+    <Button text="Go to News Feed" onAction="#handleGoToNewsFeed"/>
+    <Button text="Manage Friends" onAction="#handleGoToFriends"/>
+    <Button text="Sign Out" onAction="#handleSignOut"/>
+</VBox>

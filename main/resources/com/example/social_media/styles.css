@@ -1,0 +1,59 @@
+.root {
+    /* Dark gradient background */
+    -fx-background-color: linear-gradient(#1C1C1C, #2E2E2E);
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-text-fill: #FFF;
+    -fx-padding: 20;
+}
+
+/* Label text color & size */
+.label {
+    -fx-text-fill: #EAEAEA;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+/* Buttons with a dark style & icons can also appear if you embed them */
+.button {
+    -fx-background-color: linear-gradient(#3A3A3A, #2B2B2B);
+    -fx-text-fill: #FFF;
+    -fx-font-weight: bold;
+    -fx-border-color: #555;
+    -fx-border-width: 1;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-padding: 8 18;
+    -fx-cursor: hand;
+}
+.button:hover {
+    -fx-background-color: linear-gradient(#4A4A4A, #3A3A3A);
+}
+.button:pressed {
+    -fx-background-color: #1F1F1F;
+}
+
+/* Fields: dark background, white text */
+.text-field, .text-area, .combo-box, .password-field {
+    -fx-background-color: #333;
+    -fx-text-fill: #FFF;
+    -fx-background-radius: 4;
+    -fx-border-color: #666;
+    -fx-border-width: 1;
+    -fx-padding: 6 10;
+    -fx-font-size: 13px;
+}
+
+/* ListView for displaying posts in dark mode */
+.list-view {
+    -fx-background-color: #2A2A2A;
+    -fx-border-color: #555;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-cell-size: 56;
+    -fx-text-fill: #FFF;
+}
+
+/* Optional ScrollBar styling */
+.scroll-bar {
+    -fx-background-color: #444;
+}
