@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.*?>
+
+<VBox xmlns="http://javafx.com/javafx/8"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.social_media.controller.FriendsController"
+      spacing="10" alignment="CENTER">
+
+    <Label text="Luxurious Friend Management"/>
+
+    <!-- CHANGED label to say (username) -->
+    <Label text="Send Friend Request (username):"/>
+    <TextField fx:id="friendIdField" promptText="Friend's Username"/>
+    <Button text="Send Request" onAction="#handleSendRequest"/>
+
+    <Separator/>
+
+    <Label text="Pending Requests:"/>
+    <ListView fx:id="pendingListView" style="-fx-pref-width:350; -fx-pref-height:100;"/>
+    <Button text="Accept Selected" onAction="#handleAcceptRequest"/>
+
+    <Separator/>
+
+    <Label text="My Friends:"/>
+    <ListView fx:id="friendsListView" style="-fx-pref-width:350; -fx-pref-height:100;"/>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="View Profile" onAction="#handleViewFriendProfile"/>
+        <Button text="Remove Friend" onAction="#handleRemoveFriend"/>
+    </HBox>
+
+    <Separator/>
+    <Button text="Back to Profile" onAction="#handleBack"/>
+</VBox>

@@ -1,0 +1,2341 @@
+
+D:\DEVOPS\DEBI\dumb\Project\Social_Media\src>(
+echo name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\module-info.java  
+ type "D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\module-info.java"  
+ echo ----------------------------------------- 
+) 
+name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\module-info.java
+module com.example.social_media {
+    requires javafx.controls;
+    requires javafx.fxml;
+    requires java.sql;
+    requires jbcrypt;
+    requires javafx.graphics;
+    requires javafx.base;
+
+    opens com.example.social_media to javafx.fxml;
+    opens com.example.social_media.controller to javafx.fxml;
+    exports com.example.social_media;
+}
+-----------------------------------------
+
+D:\DEVOPS\DEBI\dumb\Project\Social_Media\src>(
+echo name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\Comment.java  
+ type "D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\Comment.java"  
+ echo ----------------------------------------- 
+) 
+name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\Comment.java
+package com.example.social_media;
+
+import java.time.LocalDateTime;
+
+public class Comment {
+    private int commentId;
+    private int postId;
+    private int userId;
+    private String content;
+    private LocalDateTime createdAt;
+
+    public Comment() {}
+
+    public Comment(int commentId, int postId, int userId, String content, LocalDateTime createdAt) {
+        this.commentId = commentId;
+        this.postId = postId;
+        this.userId = userId;
+        this.content = content;
+        this.createdAt = createdAt;
+    }
+
+    public int getCommentId() { return commentId; }
+    public void setCommentId(int commentId) { this.commentId = commentId; }
+
+    public int getPostId() { return postId; }
+    public void setPostId(int postId) { this.postId = postId; }
+
+    public int getUserId() { return userId; }
+    public void setUserId(int userId) { this.userId = userId; }
+
+    public String getContent() { return content; }
+    public void setContent(String content) { this.content = content; }
+
+    public LocalDateTime getCreatedAt() { return createdAt; }
+    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+}
+-----------------------------------------
+
+D:\DEVOPS\DEBI\dumb\Project\Social_Media\src>(
+echo name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\Friendship.java  
+ type "D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\Friendship.java"  
+ echo ----------------------------------------- 
+) 
+name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\Friendship.java
+package com.example.social_media;
+
+import java.time.LocalDateTime;
+
+public class Friendship {
+    private int friendshipId;
+    private int userId1;
+    private int userId2;
+    private String status; // pending, accepted
+    private LocalDateTime createdAt;
+
+    public Friendship() {}
+
+    public Friendship(int friendshipId, int userId1, int userId2,
+                      String status, LocalDateTime createdAt) {
+        this.friendshipId = friendshipId;
+        this.userId1 = userId1;
+        this.userId2 = userId2;
+        this.status = status;
+        this.createdAt = createdAt;
+    }
+
+    public int getFriendshipId() { return friendshipId; }
+    public void setFriendshipId(int friendshipId) { this.friendshipId = friendshipId; }
+
+    public int getUserId1() { return userId1; }
+    public void setUserId1(int userId1) { this.userId1 = userId1; }
+
+    public int getUserId2() { return userId2; }
+    public void setUserId2(int userId2) { this.userId2 = userId2; }
+
+    public String getStatus() { return status; }
+    public void setStatus(String status) { this.status = status; }
+
+    public LocalDateTime getCreatedAt() { return createdAt; }
+    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+}
+-----------------------------------------
+
+D:\DEVOPS\DEBI\dumb\Project\Social_Media\src>(
+echo name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\Like.java  
+ type "D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\Like.java"  
+ echo ----------------------------------------- 
+) 
+name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\Like.java
+package com.example.social_media;
+
+import java.time.LocalDateTime;
+
+public class Like {
+    private int likeId;
+    private int postId;
+    private int userId;
+    private LocalDateTime createdAt;
+
+    public Like() {}
+
+    public Like(int likeId, int postId, int userId, LocalDateTime createdAt) {
+        this.likeId = likeId;
+        this.postId = postId;
+        this.userId = userId;
+        this.createdAt = createdAt;
+    }
+
+    public int getLikeId() { return likeId; }
+    public void setLikeId(int likeId) { this.likeId = likeId; }
+
+    public int getPostId() { return postId; }
+    public void setPostId(int postId) { this.postId = postId; }
+
+    public int getUserId() { return userId; }
+    public void setUserId(int userId) { this.userId = userId; }
+
+    public LocalDateTime getCreatedAt() { return createdAt; }
+    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+}
+-----------------------------------------
+
+D:\DEVOPS\DEBI\dumb\Project\Social_Media\src>(
+echo name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\MainApp.java  
+ type "D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\MainApp.java"  
+ echo ----------------------------------------- 
+) 
+name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\MainApp.java
+package com.example.social_media;
+
+import com.example.social_media.util.SceneManager;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.stage.Stage;
+
+public class MainApp extends Application {
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/social_media/login.fxml"));
+        Parent loginRoot = loader.load();
+
+        // Initialize SceneManager with a single scene
+        SceneManager.init(primaryStage, loginRoot);
+
+        // Fix the window size, no resizing
+        primaryStage.setResizable(false);
+
+        primaryStage.setTitle("Luxurious Social Media");
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
+-----------------------------------------
+
+D:\DEVOPS\DEBI\dumb\Project\Social_Media\src>(
+echo name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\Post.java  
+ type "D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\Post.java"  
+ echo ----------------------------------------- 
+) 
+name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\Post.java
+package com.example.social_media;
+
+import java.time.LocalDateTime;
+
+public class Post {
+    private int postId;
+    private int userId;
+    private String content;
+    private byte[] imageData;
+    private String privacyLevel;
+    private LocalDateTime createdAt;
+
+    public Post() {}
+
+    public Post(int postId, int userId, String content, byte[] imageData,
+                String privacyLevel, LocalDateTime createdAt) {
+        this.postId = postId;
+        this.userId = userId;
+        this.content = content;
+        this.imageData = imageData;
+        this.privacyLevel = privacyLevel;
+        this.createdAt = createdAt;
+    }
+
+    public int getPostId() { return postId; }
+    public void setPostId(int postId) { this.postId = postId; }
+
+    public int getUserId() { return userId; }
+    public void setUserId(int userId) { this.userId = userId; }
+
+    public String getContent() { return content; }
+    public void setContent(String content) { this.content = content; }
+
+    public byte[] getImageData() { return imageData; }
+    public void setImageData(byte[] imageData) { this.imageData = imageData; }
+
+    public String getPrivacyLevel() { return privacyLevel; }
+    public void setPrivacyLevel(String privacyLevel) { this.privacyLevel = privacyLevel; }
+
+    public LocalDateTime getCreatedAt() { return createdAt; }
+    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+}
+-----------------------------------------
+
+D:\DEVOPS\DEBI\dumb\Project\Social_Media\src>(
+echo name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\Profile.java  
+ type "D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\Profile.java"  
+ echo ----------------------------------------- 
+) 
+name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\Profile.java
+package com.example.social_media;
+
+import java.time.LocalDateTime;
+
+public class Profile {
+    private int profileId;
+    private int userId;
+    private String fullName;
+    private String bio;
+    private byte[] profilePicture;
+    private LocalDateTime updatedAt;
+
+    public Profile() {}
+
+    public Profile(int profileId, int userId, String fullName,
+                   String bio, byte[] profilePicture, LocalDateTime updatedAt) {
+        this.profileId = profileId;
+        this.userId = userId;
+        this.fullName = fullName;
+        this.bio = bio;
+        this.profilePicture = profilePicture;
+        this.updatedAt = updatedAt;
+    }
+
+    public int getProfileId() { return profileId; }
+    public void setProfileId(int profileId) { this.profileId = profileId; }
+
+    public int getUserId() { return userId; }
+    public void setUserId(int userId) { this.userId = userId; }
+
+    public String getFullName() { return fullName; }
+    public void setFullName(String fullName) { this.fullName = fullName; }
+
+    public String getBio() { return bio; }
+    public void setBio(String bio) { this.bio = bio; }
+
+    public byte[] getProfilePicture() { return profilePicture; }
+    public void setProfilePicture(byte[] profilePicture) { this.profilePicture = profilePicture; }
+
+    public LocalDateTime getUpdatedAt() { return updatedAt; }
+    public void setUpdatedAt(LocalDateTime updatedAt) { this.updatedAt = updatedAt; }
+}
+-----------------------------------------
+
+D:\DEVOPS\DEBI\dumb\Project\Social_Media\src>(
+echo name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\User.java  
+ type "D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\User.java"  
+ echo ----------------------------------------- 
+) 
+name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\User.java
+package com.example.social_media;
+
+public class User {
+    private int userId;
+    private String username;
+    private String email;
+    private String passwordHash; // hashed password
+
+    public User() {}
+
+    public User(int userId, String username, String email, String passwordHash) {
+        this.userId = userId;
+        this.username = username;
+        this.email = email;
+        this.passwordHash = passwordHash;
+    }
+
+    public int getUserId() { return userId; }
+    public void setUserId(int userId) { this.userId = userId; }
+
+    public String getUsername() { return username; }
+    public void setUsername(String username) { this.username = username; }
+
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
+
+    public String getPasswordHash() { return passwordHash; }
+    public void setPasswordHash(String passwordHash) { this.passwordHash = passwordHash; }
+}
+-----------------------------------------
+
+D:\DEVOPS\DEBI\dumb\Project\Social_Media\src>(
+echo name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\controller\FriendProfileController.java  
+ type "D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\controller\FriendProfileController.java"  
+ echo ----------------------------------------- 
+) 
+name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\controller\FriendProfileController.java
+package com.example.social_media.controller;
+
+import com.example.social_media.Profile;
+import com.example.social_media.Post;
+import com.example.social_media.User;
+import com.example.social_media.service.ProfileService;
+import com.example.social_media.service.PostService;
+import com.example.social_media.service.UserService;
+import com.example.social_media.util.SceneManager;
+import javafx.fxml.FXML;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+import java.io.ByteArrayInputStream;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class FriendProfileController {
+
+    @FXML private ImageView friendImageView;
+    @FXML private Label fullNameLabel;
+    @FXML private Label bioLabel;
+    @FXML private ListView<Post> postsListView;
+
+    private final ProfileService profileService = new ProfileService();
+    private final PostService postService = new PostService();
+    private final UserService userService = new UserService();
+
+    private User currentUser;
+    private int friendUserId;
+    private ObservableList<Post> friendPosts = FXCollections.observableArrayList();
+
+    public void initData(User current, int friendId) {
+        this.currentUser = current;
+        this.friendUserId = friendId;
+
+        // Load friend's profile
+        Profile friendProfile = profileService.getProfileByUserId(friendUserId);
+        if (friendProfile != null) {
+            if (friendProfile.getProfilePicture() != null) {
+                friendImageView.setImage(new Image(new ByteArrayInputStream(friendProfile.getProfilePicture())));
+            }
+            fullNameLabel.setText(friendProfile.getFullName() != null
+                    ? friendProfile.getFullName() : "[No Name]");
+            bioLabel.setText(friendProfile.getBio() != null
+                    ? friendProfile.getBio() : "[No bio]");
+        } else {
+            fullNameLabel.setText("[No profile]");
+            bioLabel.setText("");
+        }
+
+        // Load friend's posts, skipping "private"
+        List<Post> rawPosts = postService.getPostsByUser(friendUserId);
+        List<Post> visiblePosts = rawPosts.stream()
+                .filter(p -> !p.getPrivacyLevel().equals("private"))
+                .collect(Collectors.toList());
+
+        friendPosts.setAll(visiblePosts);
+        postsListView.setItems(friendPosts);
+
+        // Show each post
+        postsListView.setCellFactory(lv -> new ListCell<>() {
+            @Override
+            protected void updateItem(Post item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setText(null);
+                } else {
+                    User friendUser = userService.getUserById(item.getUserId());
+                    String friendName = (friendUser != null) ? friendUser.getUsername() : "[Unknown]";
+                    setText("Posted by: " + friendName
+                            + "\nContent: " + item.getContent()
+                            + "\nPrivacy: " + item.getPrivacyLevel());
+                }
+            }
+        });
+    }
+
+    @FXML
+    private void handleBackToFriends() {
+        var fc = SceneManager.switchRoot("/com/example/social_media/friends.fxml");
+        if (fc instanceof FriendsController) {
+            ((FriendsController) fc).initData(currentUser);
+        }
+    }
+}
+-----------------------------------------
+
+D:\DEVOPS\DEBI\dumb\Project\Social_Media\src>(
+echo name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\controller\FriendsController.java  
+ type "D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\controller\FriendsController.java"  
+ echo ----------------------------------------- 
+) 
+name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\controller\FriendsController.java
+package com.example.social_media.controller;
+
+import com.example.social_media.Friendship;
+import com.example.social_media.User;
+import com.example.social_media.service.FriendshipService;
+import com.example.social_media.service.UserService;
+import com.example.social_media.util.SceneManager;
+import javafx.fxml.FXML;
+import javafx.scene.control.*;
+import javafx.event.ActionEvent;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import java.util.List;
+
+public class FriendsController {
+
+    @FXML private TextField friendIdField; // now actually a username
+    @FXML private ListView<Friendship> pendingListView;
+    @FXML private ListView<Friendship> friendsListView;
+
+    private final FriendshipService friendshipService = new FriendshipService();
+    private final UserService userService = new UserService();
+
+    private User currentUser;
+    private ObservableList<Friendship> pendingRequests = FXCollections.observableArrayList();
+    private ObservableList<Friendship> acceptedFriends = FXCollections.observableArrayList();
+
+    public void initData(User user) {
+        this.currentUser = user;
+        refreshPending();
+        refreshFriends();
+    }
+
+    private void refreshPending() {
+        List<Friendship> list = friendshipService.getPending(currentUser.getUserId());
+        pendingRequests.setAll(list);
+        pendingListView.setItems(pendingRequests);
+        pendingListView.setCellFactory(lv -> new ListCell<>() {
+            @Override
+            protected void updateItem(Friendship item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setText(null);
+                } else {
+                    var sender = userService.getUserById(item.getUserId1());
+                    String senderName = (sender != null) ? sender.getUsername() : "[Unknown]";
+                    setText("Request #" + item.getFriendshipId() + " from " + senderName);
+                }
+            }
+        });
+    }
+
+    private void refreshFriends() {
+        List<Friendship> accepted = friendshipService.getFriends(currentUser.getUserId());
+        acceptedFriends.setAll(accepted);
+        friendsListView.setItems(acceptedFriends);
+        friendsListView.setCellFactory(lv -> new ListCell<>() {
+            @Override
+            protected void updateItem(Friendship item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setText(null);
+                } else {
+                    int friendId = (item.getUserId1() == currentUser.getUserId())
+                            ? item.getUserId2() : item.getUserId1();
+                    var friendUser = userService.getUserById(friendId);
+                    String friendName = (friendUser != null) ? friendUser.getUsername() : "[Unknown]";
+                    setText("Friendship #" + item.getFriendshipId() + " with: " + friendName);
+                }
+            }
+        });
+    }
+
+    @FXML
+    private void handleSendRequest(ActionEvent event) {
+        String friendUsername = friendIdField.getText().trim();
+        if (friendUsername.isEmpty()) {
+            showAlert("Error", "Please enter friend's username.");
+            return;
+        }
+
+        // look up that user
+        User friendUser = userService.getUserByUsername(friendUsername);
+        if (friendUser == null) {
+            showAlert("Error", "No user found with username: " + friendUsername);
+            return;
+        }
+
+        boolean ok = friendshipService.sendFriendRequest(currentUser.getUserId(), friendUser.getUserId());
+        if (ok) {
+            showAlert("Success", "Request sent!");
+            refreshPending();
+        } else {
+            showAlert("Error", "Failed or duplicate request.");
+        }
+    }
+
+    @FXML
+    private void handleAcceptRequest(ActionEvent event) {
+        Friendship selected = pendingListView.getSelectionModel().getSelectedItem();
+        if (selected == null) {
+            showAlert("Error", "Select a pending request first.");
+            return;
+        }
+        boolean ok = friendshipService.acceptFriendRequest(selected.getFriendshipId());
+        if (ok) {
+            showAlert("Success", "Request accepted!");
+            refreshPending();
+            refreshFriends();
+        } else {
+            showAlert("Error", "Could not accept request.");
+        }
+    }
+
+    @FXML
+    private void handleViewFriendProfile(ActionEvent event) {
+        Friendship selected = friendsListView.getSelectionModel().getSelectedItem();
+        if (selected == null) {
+            showAlert("Error", "Select a friend to view their profile.");
+            return;
+        }
+        int friendId = (selected.getUserId1() == currentUser.getUserId())
+                ? selected.getUserId2() : selected.getUserId1();
+
+        var friendProfileCtrl = SceneManager.switchRoot("/com/example/social_media/friendprofile.fxml");
+        if (friendProfileCtrl instanceof FriendProfileController) {
+            ((FriendProfileController) friendProfileCtrl).initData(currentUser, friendId);
+        }
+    }
+
+    @FXML
+    private void handleRemoveFriend(ActionEvent event) {
+        Friendship selected = friendsListView.getSelectionModel().getSelectedItem();
+        if (selected == null) {
+            showAlert("Error", "Select a friend to remove.");
+            return;
+        }
+        boolean ok = friendshipService.removeFriend(selected.getFriendshipId());
+        if (ok) {
+            showAlert("Removed", "You are no longer friends with that user.");
+            refreshFriends();
+        } else {
+            showAlert("Error", "Could not remove friend.");
+        }
+    }
+
+    @FXML
+    private void handleBack(ActionEvent event) {
+        ProfileController pc = (ProfileController) SceneManager.switchRoot("/com/example/social_media/profile.fxml");
+        if (pc != null) {
+            pc.initData(currentUser);
+        }
+    }
+
+    private void showAlert(String title, String msg) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setContentText(msg);
+        alert.showAndWait();
+    }
+}
+-----------------------------------------
+
+D:\DEVOPS\DEBI\dumb\Project\Social_Media\src>(
+echo name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\controller\LoginController.java  
+ type "D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\controller\LoginController.java"  
+ echo ----------------------------------------- 
+) 
+name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\controller\LoginController.java
+package com.example.social_media.controller;
+
+import com.example.social_media.User;
+import com.example.social_media.service.UserService;
+import com.example.social_media.util.SceneManager;
+import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+
+public class LoginController {
+
+    @FXML private TextField txtUser;  // now holds the email
+    @FXML private PasswordField txtPass;
+
+    private final UserService userService = new UserService();
+
+    @FXML
+    private void handleLoginAction() {
+        if (txtUser.getText().isEmpty() || txtPass.getText().isEmpty()) {
+            new Alert(Alert.AlertType.ERROR, "Please fill in all fields").showAndWait();
+            return;
+        }
+        // We authenticate by email now
+        User user = userService.authenticate(txtUser.getText(), txtPass.getText());
+        if (user != null) {
+            ProfileController pc = (ProfileController)
+                    SceneManager.switchRoot("/com/example/social_media/profile.fxml");
+            if (pc != null) {
+                pc.initData(user);
+            }
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Invalid email or password.").showAndWait();
+        }
+    }
+
+    @FXML
+    private void navigateToRegister() {
+        SceneManager.switchRoot("/com/example/social_media/registration.fxml");
+    }
+}
+-----------------------------------------
+
+D:\DEVOPS\DEBI\dumb\Project\Social_Media\src>(
+echo name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\controller\NewsFeedController.java  
+ type "D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\controller\NewsFeedController.java"  
+ echo ----------------------------------------- 
+) 
+name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\controller\NewsFeedController.java
+package com.example.social_media.controller;
+
+import com.example.social_media.Post;
+import com.example.social_media.Comment;
+import com.example.social_media.User;
+import com.example.social_media.service.PostService;
+import com.example.social_media.service.CommentService;
+import com.example.social_media.service.LikeService;
+import com.example.social_media.service.UserService;
+import com.example.social_media.util.SceneManager;
+import javafx.fxml.FXML;
+import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
+import javafx.scene.image.Image;
+import javafx.event.ActionEvent;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+import java.io.ByteArrayInputStream;
+import java.util.List;
+
+public class NewsFeedController {
+
+    @FXML private ListView<Post> feedListView;
+    @FXML private ListView<Comment> commentListView;
+    @FXML private TextField commentField;
+    @FXML private Label likesLabel;
+
+    private final PostService postService = new PostService();
+    private final CommentService commentService = new CommentService();
+    private final LikeService likeService = new LikeService();
+    private final UserService userService = new UserService();
+
+    private User currentUser;
+    private ObservableList<Post> feedPosts = FXCollections.observableArrayList();
+    private ObservableList<Comment> postComments = FXCollections.observableArrayList();
+
+    public void initData(User user) {
+        this.currentUser = user;
+        refreshFeed();
+        setupFeedListView();
+        setupCommentListView();
+    }
+
+    private void refreshFeed() {
+        List<Post> posts = postService.getAllPublicPosts();
+        feedPosts.setAll(posts);
+        feedListView.setItems(feedPosts);
+    }
+
+    private void setupFeedListView() {
+        feedListView.setCellFactory(lv -> new ListCell<>() {
+            private final ImageView imageView = new ImageView();
+
+            @Override
+            protected void updateItem(Post item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setText(null);
+                    setGraphic(null);
+                } else {
+                    User author = userService.getUserById(item.getUserId());
+                    String authorName = (author != null) ? author.getUsername() : "[Unknown]";
+                    String text = "Posted by: " + authorName + "\n"
+                            + "Content: " + item.getContent() + "\n"
+                            + "Privacy: " + item.getPrivacyLevel();
+                    setText(text);
+
+                    if (item.getImageData() != null) {
+                        Image img = new Image(new ByteArrayInputStream(item.getImageData()), 50, 0, true, true);
+                        imageView.setImage(img);
+                        setGraphic(imageView);
+                    } else {
+                        setGraphic(null);
+                    }
+                }
+            }
+        });
+
+        feedListView.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
+            if (newVal != null) {
+                loadComments(newVal);
+                int likeCount = likeService.countLikes(newVal.getPostId());
+                likesLabel.setText("Likes: " + likeCount);
+            }
+        });
+    }
+
+    private void setupCommentListView() {
+        commentListView.setCellFactory(lv -> new ListCell<>() {
+            @Override
+            protected void updateItem(Comment item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setText(null);
+                } else {
+                    User commenter = userService.getUserById(item.getUserId());
+                    String commenterName = (commenter != null) ? commenter.getUsername() : "[Unknown]";
+                    setText(commenterName + ": " + item.getContent());
+                }
+            }
+        });
+    }
+
+    private void loadComments(Post post) {
+        List<Comment> comments = commentService.getCommentsForPost(post.getPostId());
+        postComments.setAll(comments);
+        commentListView.setItems(postComments);
+    }
+
+    @FXML
+    private void handleAddComment(ActionEvent event) {
+        Post selected = feedListView.getSelectionModel().getSelectedItem();
+        if (selected == null) {
+            showAlert("Error", "No post selected.");
+            return;
+        }
+        String txt = commentField.getText().trim();
+        if (txt.isEmpty()) {
+            showAlert("Error", "Comment cannot be empty.");
+            return;
+        }
+        Comment c = new Comment();
+        c.setPostId(selected.getPostId());
+        c.setUserId(currentUser.getUserId());
+        c.setContent(txt);
+        commentService.addComment(c);
+        commentField.clear();
+        loadComments(selected);
+    }
+
+    @FXML
+    private void handleLike(ActionEvent event) {
+        Post selected = feedListView.getSelectionModel().getSelectedItem();
+        if (selected == null) {
+            showAlert("Error", "No post selected.");
+            return;
+        }
+        boolean success = likeService.addLike(selected.getPostId(), currentUser.getUserId());
+        if (success) {
+            int newCount = likeService.countLikes(selected.getPostId());
+            likesLabel.setText("Likes: " + newCount);
+        } else {
+            showAlert("Error", "You may have already liked this post.");
+        }
+    }
+
+    @FXML
+    private void handleBack(ActionEvent event) {
+        ProfileController pc = SceneManager.switchRoot("/com/example/social_media/profile.fxml");
+        if (pc != null) {
+            pc.initData(currentUser);
+        }
+    }
+
+    private void showAlert(String title, String msg) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setContentText(msg);
+        alert.showAndWait();
+    }
+}
+-----------------------------------------
+
+D:\DEVOPS\DEBI\dumb\Project\Social_Media\src>(
+echo name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\controller\PostController.java  
+ type "D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\controller\PostController.java"  
+ echo ----------------------------------------- 
+) 
+name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\controller\PostController.java
+package com.example.social_media.controller;
+
+import com.example.social_media.Post;
+import com.example.social_media.User;
+import com.example.social_media.service.PostService;
+import com.example.social_media.service.UserService;
+import com.example.social_media.util.SceneManager;
+import javafx.fxml.FXML;
+import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
+import javafx.scene.image.Image;
+import javafx.stage.FileChooser;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.util.List;
+
+public class PostController {
+
+    @FXML private TextArea contentArea;
+    @FXML private ComboBox<String> privacyCombo;
+    @FXML private ListView<Post> postsListView;
+    @FXML private ImageView imagePreview; // for previewing the chosen image
+
+    private final PostService postService = new PostService();
+    private final UserService userService = new UserService();
+
+    private User currentUser;
+    private byte[] chosenImageData;
+    private ObservableList<Post> postObservableList = FXCollections.observableArrayList();
+
+    public void initData(User user) {
+        this.currentUser = user;
+        if (privacyCombo != null) {
+            privacyCombo.setValue("public"); // default
+        }
+        refreshPosts();
+    }
+
+    private void refreshPosts() {
+        List<Post> userPosts = postService.getPostsByUser(currentUser.getUserId());
+        postObservableList.setAll(userPosts);
+        postsListView.setItems(postObservableList);
+
+        postsListView.setCellFactory(lv -> new ListCell<>() {
+            @Override
+            protected void updateItem(Post item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setText(null);
+                } else {
+                    var author = userService.getUserById(item.getUserId());
+                    String authorName = (author != null) ? author.getUsername() : "[Unknown]";
+                    setText("Posted by: " + authorName + "\n"
+                            + "Content: " + item.getContent() + "\n"
+                            + "Privacy: " + item.getPrivacyLevel());
+                }
+            }
+        });
+    }
+
+    @FXML
+    private void handleChooseImage() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Select an Image");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg")
+        );
+        File file = fileChooser.showOpenDialog(null);
+        if (file != null) {
+            try {
+                chosenImageData = Files.readAllBytes(file.toPath());
+                // Show a preview
+                imagePreview.setImage(new Image(new ByteArrayInputStream(chosenImageData)));
+            } catch (IOException e) {
+                showAlert("Error", "Could not read image file: " + e.getMessage());
+            }
+        }
+    }
+
+    @FXML
+    private void handlePost() {
+        String content = contentArea.getText().trim();
+        String privacy = privacyCombo.getValue();
+        if (content.isEmpty() && chosenImageData == null) {
+            showAlert("Error", "Please enter some text or choose an image first.");
+            return;
+        }
+
+        // Create the post
+        Post post = new Post();
+        post.setUserId(currentUser.getUserId());
+        post.setContent(content);
+        post.setImageData(chosenImageData);
+        post.setPrivacyLevel(privacy);
+
+        // Save to DB
+        postService.createPost(post);
+
+        // Clear UI
+        contentArea.clear();
+        chosenImageData = null;
+        imagePreview.setImage(null);
+
+        refreshPosts();
+    }
+
+    @FXML
+    private void handleBack() {
+        // Cast to ProfileController so we can call initData(...)
+        ProfileController profileCtrl = (ProfileController) SceneManager.switchRoot("/com/example/social_media/profile.fxml");
+        if (profileCtrl != null) {
+            profileCtrl.initData(currentUser);
+        }
+    }
+
+    private void showAlert(String title, String msg) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setContentText(msg);
+        alert.showAndWait();
+    }
+}
+-----------------------------------------
+
+D:\DEVOPS\DEBI\dumb\Project\Social_Media\src>(
+echo name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\controller\ProfileController.java  
+ type "D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\controller\ProfileController.java"  
+ echo ----------------------------------------- 
+) 
+name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\controller\ProfileController.java
+package com.example.social_media.controller;
+
+import com.example.social_media.User;
+import com.example.social_media.service.UserService;
+import com.example.social_media.util.SceneManager;
+import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
+
+public class ProfileController {
+
+    @FXML private Text userHeader;
+    @FXML private TextField searchField;
+    @FXML private TextField postField;
+
+    private User currentUser;
+    private final UserService userService = new UserService();
+
+    public void initData(User user) {
+        this.currentUser = user;
+        if (user != null) {
+            userHeader.setText("Hello " + user.getUsername());
+        }
+    }
+
+    @FXML
+    private void handleSearch() {
+        String query = searchField.getText();
+        if (query.isEmpty()) {
+            new Alert(Alert.AlertType.WARNING, "Please enter something to search.").showAndWait();
+            return;
+        }
+        new Alert(Alert.AlertType.INFORMATION, "Searching for: " + query).showAndWait();
+    }
+
+    @FXML
+    private void handleCreatePost() {
+        String content = postField.getText().trim();
+        if (content.isEmpty()) {
+            new Alert(Alert.AlertType.WARNING, "Cannot create empty post!").showAndWait();
+            return;
+        }
+        // Post logic or service call...
+        new Alert(Alert.AlertType.INFORMATION, "Created post: " + content).showAndWait();
+        postField.clear();
+    }
+
+    // Show the Profile Management screen
+    @FXML
+    private void showProfile() {
+        ProfileManagementController pmc = (ProfileManagementController)
+                SceneManager.switchRoot("/com/example/social_media/profilemanagement.fxml");
+        if (pmc != null && currentUser != null) {
+            pmc.initData(currentUser);
+        }
+    }
+
+    // Navigate to the News Feed
+    @FXML
+    private void goToNewsFeed() {
+        // Switch to newsfeed.fxml
+        NewsFeedController nfc = (NewsFeedController)
+                SceneManager.switchRoot("/com/example/social_media/newsfeed.fxml");
+        if (nfc != null && currentUser != null) {
+            nfc.initData(currentUser);
+        }
+    }
+
+    // Navigate to the Friend system
+    @FXML
+    private void goToFriends() {
+        FriendsController fc = (FriendsController)
+                SceneManager.switchRoot("/com/example/social_media/friends.fxml");
+        if (fc != null && currentUser != null) {
+            fc.initData(currentUser);
+        }
+    }
+
+    @FXML
+    private void handleLogout() {
+        SceneManager.switchRoot("/com/example/social_media/login.fxml");
+    }
+}
+-----------------------------------------
+
+D:\DEVOPS\DEBI\dumb\Project\Social_Media\src>(
+echo name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\controller\ProfileManagementController.java  
+ type "D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\controller\ProfileManagementController.java"  
+ echo ----------------------------------------- 
+) 
+name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\controller\ProfileManagementController.java
+package com.example.social_media.controller;
+
+import com.example.social_media.Profile;
+import com.example.social_media.User;
+import com.example.social_media.service.ProfileService;
+import javafx.fxml.FXML;
+import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
+import javafx.scene.image.Image;
+import javafx.stage.FileChooser;
+
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+
+public class ProfileManagementController {
+
+    @FXML private Label usernameLabel;
+    @FXML private TextArea bioField;
+    @FXML private ImageView profileImageView;
+
+    private final ProfileService profileService = new ProfileService();
+    private User currentUser;
+    private Profile currentProfile;
+    private byte[] chosenPictureData;
+
+    public void initData(User user) {
+        this.currentUser = user;
+        if (user != null) {
+            usernameLabel.setText(user.getUsername());
+            loadProfile(user.getUserId());
+        }
+    }
+
+    private void loadProfile(int userId) {
+        currentProfile = profileService.getProfileByUserId(userId);
+        if (currentProfile == null) {
+            currentProfile = new Profile();
+            currentProfile.setUserId(userId);
+        } else {
+            if (currentProfile.getBio() != null) {
+                bioField.setText(currentProfile.getBio());
+            }
+            if (currentProfile.getProfilePicture() != null) {
+                profileImageView.setImage(new Image(new ByteArrayInputStream(currentProfile.getProfilePicture())));
+            }
+        }
+    }
+
+    @FXML
+    private void handleChooseProfilePic() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Select Profile Picture");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg")
+        );
+        File file = fileChooser.showOpenDialog(null);
+        if (file != null) {
+            try {
+                chosenPictureData = Files.readAllBytes(file.toPath());
+                profileImageView.setImage(new Image(new ByteArrayInputStream(chosenPictureData)));
+            } catch (IOException e) {
+                new Alert(Alert.AlertType.ERROR, "Could not read image file.").showAndWait();
+            }
+        }
+    }
+
+    @FXML
+    private void handleSaveProfile() {
+        if (currentProfile != null) {
+            currentProfile.setBio(bioField.getText());
+            if (chosenPictureData != null) {
+                currentProfile.setProfilePicture(chosenPictureData);
+            }
+            profileService.saveProfile(currentProfile);
+            new Alert(Alert.AlertType.INFORMATION, "Profile saved!").showAndWait();
+        }
+    }
+
+    @FXML
+    private void handleBack() {
+        var pc = com.example.social_media.util.SceneManager.switchRoot("/com/example/social_media/profile.fxml");
+        if (pc instanceof ProfileController && currentUser != null) {
+            ((ProfileController) pc).initData(currentUser);
+        }
+    }
+}
+-----------------------------------------
+
+D:\DEVOPS\DEBI\dumb\Project\Social_Media\src>(
+echo name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\controller\RegistrationController.java  
+ type "D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\controller\RegistrationController.java"  
+ echo ----------------------------------------- 
+) 
+name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\controller\RegistrationController.java
+package com.example.social_media.controller;
+
+import com.example.social_media.service.UserService;
+import com.example.social_media.util.SceneManager;
+import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+
+public class RegistrationController {
+
+    @FXML private TextField txtUser;
+    @FXML private TextField txtEmail;
+    @FXML private PasswordField txtPass;
+    @FXML private PasswordField txtPassConfirm;
+
+    private final UserService userService = new UserService();
+
+    @FXML
+    private void handleRegister() {
+        if (txtUser.getText().isEmpty() ||
+                txtEmail.getText().isEmpty() ||
+                txtPass.getText().isEmpty() ||
+                txtPassConfirm.getText().isEmpty()) {
+
+            new Alert(Alert.AlertType.ERROR, "Please fill all fields").showAndWait();
+            return;
+        }
+        if (!txtPass.getText().equals(txtPassConfirm.getText())) {
+            new Alert(Alert.AlertType.ERROR, "Passwords do not match").showAndWait();
+            return;
+        }
+
+        boolean success = userService.registerUser(txtUser.getText(), txtEmail.getText(), txtPass.getText());
+        if (success) {
+            new Alert(Alert.AlertType.INFORMATION, "Registration Successful").showAndWait();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Username or Email already exists!").showAndWait();
+        }
+    }
+
+    @FXML
+    private void handleBack() {
+        SceneManager.switchRoot("/com/example/social_media/login.fxml");
+    }
+}
+-----------------------------------------
+
+D:\DEVOPS\DEBI\dumb\Project\Social_Media\src>(
+echo name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\service\CommentService.java  
+ type "D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\service\CommentService.java"  
+ echo ----------------------------------------- 
+) 
+name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\service\CommentService.java
+package com.example.social_media.service;
+
+import com.example.social_media.Comment;
+import com.example.social_media.util.DBConnection;
+
+import java.sql.*;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
+public class CommentService {
+
+    public void addComment(Comment comment) {
+        String sql = "INSERT INTO comments (post_id, user_id, content) VALUES (?,?,?)";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, comment.getPostId());
+            pstmt.setInt(2, comment.getUserId());
+            pstmt.setString(3, comment.getContent());
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public List<Comment> getCommentsForPost(int postId) {
+        List<Comment> list = new ArrayList<>();
+        String sql = "SELECT comment_id, post_id, user_id, content, created_at FROM comments "
+                + "WHERE post_id=? ORDER BY created_at ASC";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, postId);
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                Comment c = new Comment();
+                c.setCommentId(rs.getInt("comment_id"));
+                c.setPostId(rs.getInt("post_id"));
+                c.setUserId(rs.getInt("user_id"));
+                c.setContent(rs.getString("content"));
+                Timestamp ts = rs.getTimestamp("created_at");
+                if (ts != null) {
+                    c.setCreatedAt(ts.toLocalDateTime());
+                }
+                list.add(c);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+}
+-----------------------------------------
+
+D:\DEVOPS\DEBI\dumb\Project\Social_Media\src>(
+echo name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\service\FriendshipService.java  
+ type "D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\service\FriendshipService.java"  
+ echo ----------------------------------------- 
+) 
+name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\service\FriendshipService.java
+package com.example.social_media.service;
+
+import com.example.social_media.Friendship;
+import com.example.social_media.util.DBConnection;
+
+import java.sql.*;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
+public class FriendshipService {
+
+    public boolean sendFriendRequest(int userId1, int userId2) {
+        String sql = "INSERT INTO friendships (user_id_1, user_id_2, status) VALUES (?, ?, 'pending')";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, userId1);
+            pstmt.setInt(2, userId2);
+            pstmt.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean acceptFriendRequest(int friendshipId) {
+        String sql = "UPDATE friendships SET status='accepted' WHERE friendship_id=?";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, friendshipId);
+            pstmt.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean removeFriend(int friendshipId) {
+        String sql = "DELETE FROM friendships WHERE friendship_id=?";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, friendshipId);
+            pstmt.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    // All accepted friends
+    public List<Friendship> getFriends(int userId) {
+        List<Friendship> list = new ArrayList<>();
+        String sql = "SELECT * FROM friendships "
+                + "WHERE (user_id_1=? OR user_id_2=?) AND status='accepted'";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, userId);
+            pstmt.setInt(2, userId);
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                Friendship f = new Friendship();
+                f.setFriendshipId(rs.getInt("friendship_id"));
+                f.setUserId1(rs.getInt("user_id_1"));
+                f.setUserId2(rs.getInt("user_id_2"));
+                f.setStatus(rs.getString("status"));
+                Timestamp ts = rs.getTimestamp("created_at");
+                if (ts != null) {
+                    f.setCreatedAt(ts.toLocalDateTime());
+                }
+                list.add(f);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    // Show pending requests
+    public List<Friendship> getPending(int userId) {
+        List<Friendship> list = new ArrayList<>();
+        String sql = "SELECT * FROM friendships WHERE user_id_2=? AND status='pending'";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, userId);
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                Friendship f = new Friendship();
+                f.setFriendshipId(rs.getInt("friendship_id"));
+                f.setUserId1(rs.getInt("user_id_1"));
+                f.setUserId2(rs.getInt("user_id_2"));
+                f.setStatus(rs.getString("status"));
+                Timestamp ts = rs.getTimestamp("created_at");
+                if (ts != null) {
+                    f.setCreatedAt(ts.toLocalDateTime());
+                }
+                list.add(f);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+}
+-----------------------------------------
+
+D:\DEVOPS\DEBI\dumb\Project\Social_Media\src>(
+echo name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\service\LikeService.java  
+ type "D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\service\LikeService.java"  
+ echo ----------------------------------------- 
+) 
+name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\service\LikeService.java
+package com.example.social_media.service;
+
+import com.example.social_media.util.DBConnection;
+
+import java.sql.*;
+
+public class LikeService {
+
+    public boolean addLike(int postId, int userId) {
+        String sql = "INSERT INTO likes (post_id, user_id) VALUES (?,?)";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, postId);
+            pstmt.setInt(2, userId);
+            pstmt.executeUpdate();
+            return true;
+        } catch (SQLIntegrityConstraintViolationException dup) {
+            // "Duplicate entry '7-1' for key 'likes.unique_like'"
+            System.err.println("User already liked this post: " + dup.getMessage());
+            return false;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public int countLikes(int postId) {
+        String sql = "SELECT COUNT(*) AS total FROM likes WHERE post_id=?";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, postId);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("total");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+}
+-----------------------------------------
+
+D:\DEVOPS\DEBI\dumb\Project\Social_Media\src>(
+echo name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\service\PostService.java  
+ type "D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\service\PostService.java"  
+ echo ----------------------------------------- 
+) 
+name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\service\PostService.java
+package com.example.social_media.service;
+
+import com.example.social_media.Post;
+import com.example.social_media.util.DBConnection;
+
+import java.sql.*;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
+public class PostService {
+
+    public void createPost(Post post) {
+        String sql = "INSERT INTO posts (user_id, content, image_data, privacy_level) VALUES (?,?,?,?)";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, post.getUserId());
+            pstmt.setString(2, post.getContent());
+            pstmt.setBytes(3, post.getImageData());
+            pstmt.setString(4, post.getPrivacyLevel());
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public List<Post> getPostsByUser(int userId) {
+        List<Post> list = new ArrayList<>();
+        String sql = "SELECT post_id, user_id, content, image_data, privacy_level, created_at "
+                + "FROM posts WHERE user_id=? ORDER BY created_at DESC";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, userId);
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                Post p = new Post();
+                p.setPostId(rs.getInt("post_id"));
+                p.setUserId(rs.getInt("user_id"));
+                p.setContent(rs.getString("content"));
+                p.setImageData(rs.getBytes("image_data"));
+                p.setPrivacyLevel(rs.getString("privacy_level"));
+                Timestamp ts = rs.getTimestamp("created_at");
+                if (ts != null) {
+                    p.setCreatedAt(ts.toLocalDateTime());
+                }
+                list.add(p);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    public List<Post> getAllPublicPosts() {
+        List<Post> list = new ArrayList<>();
+        String sql = "SELECT post_id, user_id, content, image_data, privacy_level, created_at "
+                + "FROM posts WHERE privacy_level='public' ORDER BY created_at DESC";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql);
+             ResultSet rs = pstmt.executeQuery()) {
+            while (rs.next()) {
+                Post p = new Post();
+                p.setPostId(rs.getInt("post_id"));
+                p.setUserId(rs.getInt("user_id"));
+                p.setContent(rs.getString("content"));
+                p.setImageData(rs.getBytes("image_data"));
+                p.setPrivacyLevel(rs.getString("privacy_level"));
+                Timestamp ts = rs.getTimestamp("created_at");
+                if (ts != null) {
+                    p.setCreatedAt(ts.toLocalDateTime());
+                }
+                list.add(p);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+}
+-----------------------------------------
+
+D:\DEVOPS\DEBI\dumb\Project\Social_Media\src>(
+echo name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\service\ProfileService.java  
+ type "D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\service\ProfileService.java"  
+ echo ----------------------------------------- 
+) 
+name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\service\ProfileService.java
+package com.example.social_media.service;
+
+import com.example.social_media.Profile;
+import com.example.social_media.util.DBConnection;
+
+import java.sql.*;
+import java.time.LocalDateTime;
+
+public class ProfileService {
+
+    public Profile getProfileByUserId(int userId) {
+        String sql = "SELECT profile_id, user_id, full_name, bio, profile_picture, updated_at "
+                + "FROM profiles WHERE user_id=?";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, userId);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                Profile p = new Profile();
+                p.setProfileId(rs.getInt("profile_id"));
+                p.setUserId(rs.getInt("user_id"));
+                p.setFullName(rs.getString("full_name"));
+                p.setBio(rs.getString("bio"));
+                p.setProfilePicture(rs.getBytes("profile_picture"));
+                Timestamp ts = rs.getTimestamp("updated_at");
+                if (ts != null) {
+                    p.setUpdatedAt(ts.toLocalDateTime());
+                }
+                return p;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public void createProfile(Profile profile) {
+        String sql = "INSERT INTO profiles (user_id, full_name, bio, profile_picture) VALUES (?,?,?,?)";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, profile.getUserId());
+            pstmt.setString(2, profile.getFullName());
+            pstmt.setString(3, profile.getBio());
+            pstmt.setBytes(4, profile.getProfilePicture());
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateProfile(Profile profile) {
+        String sql = "UPDATE profiles SET full_name=?, bio=?, profile_picture=?, "
+                + "updated_at=CURRENT_TIMESTAMP WHERE profile_id=?";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, profile.getFullName());
+            pstmt.setString(2, profile.getBio());
+            pstmt.setBytes(3, profile.getProfilePicture());
+            pstmt.setInt(4, profile.getProfileId());
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void saveProfile(Profile profile) {
+        if (profile.getProfileId() > 0) {
+            updateProfile(profile);
+        } else {
+            createProfile(profile);
+        }
+    }
+}
+-----------------------------------------
+
+D:\DEVOPS\DEBI\dumb\Project\Social_Media\src>(
+echo name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\service\UserService.java  
+ type "D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\service\UserService.java"  
+ echo ----------------------------------------- 
+) 
+name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\service\UserService.java
+package com.example.social_media.service;
+
+import com.example.social_media.User;
+import com.example.social_media.util.DBConnection;
+import com.example.social_media.util.PasswordUtils;
+
+import java.sql.*;
+
+public class UserService {
+
+    public boolean registerUser(String username, String email, String rawPassword) {
+        String hashedPassword = PasswordUtils.hashPassword(rawPassword);
+        String insertSQL = "INSERT INTO users (username, email, password_hash) VALUES (?,?,?)";
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(insertSQL)) {
+
+            pstmt.setString(1, username);
+            pstmt.setString(2, email);
+            pstmt.setString(3, hashedPassword);
+            pstmt.executeUpdate();
+            return true;
+
+        } catch (SQLIntegrityConstraintViolationException dup) {
+            System.err.println("Duplicate entry for user/email: " + dup.getMessage());
+            return false;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    // authenticate by email
+    public User authenticate(String email, String rawPassword) {
+        String sql = "SELECT user_id, username, email, password_hash FROM users WHERE email=?";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, email);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                int userId = rs.getInt("user_id");
+                String username = rs.getString("username");
+                String storedHash = rs.getString("password_hash");
+                if (PasswordUtils.checkPassword(rawPassword, storedHash)) {
+                    return new User(userId, username, email, storedHash);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    // getUserById
+    public User getUserById(int userId) {
+        String sql = "SELECT user_id, username, email, password_hash FROM users WHERE user_id=?";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, userId);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                User u = new User();
+                u.setUserId(rs.getInt("user_id"));
+                u.setUsername(rs.getString("username"));
+                u.setEmail(rs.getString("email"));
+                u.setPasswordHash(rs.getString("password_hash"));
+                return u;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    // new: look up user by username
+    public User getUserByUsername(String username) {
+        String sql = "SELECT user_id, username, email, password_hash FROM users WHERE username=?";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, username);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                User u = new User();
+                u.setUserId(rs.getInt("user_id"));
+                u.setUsername(rs.getString("username"));
+                u.setEmail(rs.getString("email"));
+                u.setPasswordHash(rs.getString("password_hash"));
+                return u;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+}
+-----------------------------------------
+
+D:\DEVOPS\DEBI\dumb\Project\Social_Media\src>(
+echo name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\util\DBConnection.java  
+ type "D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\util\DBConnection.java"  
+ echo ----------------------------------------- 
+) 
+name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\util\DBConnection.java
+package com.example.social_media.util;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class DBConnection {
+    private static final String URL = "jdbc:mysql://ourdatabase.c1igyio6wgx5.ca-central-1.rds.amazonaws.com:3306/social_media_app";
+    private static final String USER = "admin";
+    private static final String PASSWORD = "worldOFdatabases";
+
+    static {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(URL, USER, PASSWORD);
+    }
+}
+-----------------------------------------
+
+D:\DEVOPS\DEBI\dumb\Project\Social_Media\src>(
+echo name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\util\PasswordUtils.java  
+ type "D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\util\PasswordUtils.java"  
+ echo ----------------------------------------- 
+) 
+name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\util\PasswordUtils.java
+package com.example.social_media.util;
+
+import org.mindrot.jbcrypt.BCrypt;
+
+public class PasswordUtils {
+
+    public static String hashPassword(String rawPassword) {
+        return BCrypt.hashpw(rawPassword, BCrypt.gensalt());
+    }
+
+    public static boolean checkPassword(String rawPassword, String hashed) {
+        return BCrypt.checkpw(rawPassword, hashed);
+    }
+}
+-----------------------------------------
+
+D:\DEVOPS\DEBI\dumb\Project\Social_Media\src>(
+echo name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\util\SceneManager.java  
+ type "D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\util\SceneManager.java"  
+ echo ----------------------------------------- 
+) 
+name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\java\com\example\social_media\util\SceneManager.java
+package com.example.social_media.util;
+
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+
+public class SceneManager {
+
+    private static Stage primaryStage;
+    private static Scene mainScene;
+
+    public static void init(Stage stage, Parent initialRoot) {
+        primaryStage = stage;
+        mainScene = new Scene(initialRoot);
+
+        // Attach your global stylesheet
+        mainScene.getStylesheets().add(
+                SceneManager.class.getResource("/com/example/social_media/styles.css").toExternalForm()
+        );
+
+        primaryStage.setScene(mainScene);
+        primaryStage.setMaximized(true);
+        primaryStage.show();
+    }
+
+    public static <T> T switchRoot(String fxmlPath) {
+        try {
+            FXMLLoader loader = new FXMLLoader(SceneManager.class.getResource(fxmlPath));
+            Parent newRoot = loader.load();
+            mainScene.setRoot(newRoot);
+            primaryStage.setMaximized(true);
+            return loader.getController();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static Stage getPrimaryStage() {
+        return primaryStage;
+    }
+}
+-----------------------------------------
+
+D:\DEVOPS\DEBI\dumb\Project\Social_Media\src>(
+echo name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\resources\com\example\social_media\friendprofile.fxml  
+ type "D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\resources\com\example\social_media\friendprofile.fxml"  
+ echo ----------------------------------------- 
+) 
+name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\resources\com\example\social_media\friendprofile.fxml
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<VBox xmlns="http://javafx.com/javafx/8"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.social_media.controller.FriendProfileController"
+      spacing="10" alignment="CENTER">
+
+    <Label text="Friend's Luxurious Profile" styleClass="friend-heading"/>
+
+    <ImageView fx:id="friendImageView" fitWidth="120" preserveRatio="true"/>
+    <Label text="Full Name:"/>
+    <Label fx:id="fullNameLabel"/>
+    <Label text="Bio:"/>
+    <Label fx:id="bioLabel" wrapText="true"/>
+
+    <Separator/>
+
+    <Label text="Friend's Posts:"/>
+    <ListView fx:id="postsListView" style="-fx-pref-width:400; -fx-pref-height:200;"/>
+
+    <Button text="Back to Friends" onAction="#handleBackToFriends"/>
+</VBox>
+-----------------------------------------
+
+D:\DEVOPS\DEBI\dumb\Project\Social_Media\src>(
+echo name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\resources\com\example\social_media\friends.fxml  
+ type "D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\resources\com\example\social_media\friends.fxml"  
+ echo ----------------------------------------- 
+) 
+name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\resources\com\example\social_media\friends.fxml
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.*?>
+
+<VBox xmlns="http://javafx.com/javafx/8"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.social_media.controller.FriendsController"
+      spacing="10" alignment="CENTER">
+
+    <Label text="Luxurious Friend Management"/>
+
+    <!-- CHANGED label to say (username) -->
+    <Label text="Send Friend Request (username):"/>
+    <TextField fx:id="friendIdField" promptText="Friend's Username"/>
+    <Button text="Send Request" onAction="#handleSendRequest"/>
+
+    <Separator/>
+
+    <Label text="Pending Requests:"/>
+    <ListView fx:id="pendingListView" style="-fx-pref-width:350; -fx-pref-height:100;"/>
+    <Button text="Accept Selected" onAction="#handleAcceptRequest"/>
+
+    <Separator/>
+
+    <Label text="My Friends:"/>
+    <ListView fx:id="friendsListView" style="-fx-pref-width:350; -fx-pref-height:100;"/>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="View Profile" onAction="#handleViewFriendProfile"/>
+        <Button text="Remove Friend" onAction="#handleRemoveFriend"/>
+    </HBox>
+
+    <Separator/>
+    <Button text="Back to Profile" onAction="#handleBack"/>
+</VBox>
+-----------------------------------------
+
+D:\DEVOPS\DEBI\dumb\Project\Social_Media\src>(
+echo name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\resources\com\example\social_media\login.fxml  
+ type "D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\resources\com\example\social_media\login.fxml"  
+ echo ----------------------------------------- 
+) 
+name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\resources\com\example\social_media\login.fxml
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx/8"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.social_media.controller.LoginController"
+      alignment="CENTER"
+      spacing="20"
+      prefWidth="400.0"
+      style="-fx-background-color: white;">
+    <padding>
+        <Insets bottom="30" left="30" right="30" top="30"/>
+    </padding>
+    <children>
+        <Label text="Welcome Back">
+            <font>
+                <Font name="System Bold" size="28.0" />
+            </font>
+        </Label>
+        <Label text="Sign in to continue" textFill="#666666">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <Separator prefWidth="200.0" />
+
+        <VBox spacing="5">
+            <children>
+                <Label text="Email" />
+                <TextField fx:id="txtUser" onAction="#handleLoginAction" promptText="Your Email Address" />
+            </children>
+        </VBox>
+
+        <VBox spacing="5">
+            <children>
+                <Label text="Password" />
+                <PasswordField fx:id="txtPass" onAction="#handleLoginAction" />
+            </children>
+        </VBox>
+
+        <Button fx:id="btnLogin"
+                text="LOGIN"
+                onAction="#handleLoginAction"
+                prefWidth="340"/>
+
+        <Hyperlink text="Don't have an account? Create One"
+                   onAction="#navigateToRegister"/>
+    </children>
+</VBox>
+-----------------------------------------
+
+D:\DEVOPS\DEBI\dumb\Project\Social_Media\src>(
+echo name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\resources\com\example\social_media\newsfeed.fxml  
+ type "D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\resources\com\example\social_media\newsfeed.fxml"  
+ echo ----------------------------------------- 
+) 
+name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\resources\com\example\social_media\newsfeed.fxml
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<VBox xmlns="http://javafx.com/javafx/8"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.social_media.controller.NewsFeedController"
+      spacing="10" alignment="CENTER">
+
+    <Label text="News Feed" />
+    <ListView fx:id="feedListView" style="-fx-pref-width:400; -fx-pref-height:200;" />
+
+    <Label text="Comments" />
+    <ListView fx:id="commentListView" style="-fx-pref-width:400; -fx-pref-height:100;" />
+
+    <TextField fx:id="commentField" promptText="Add a comment..."/>
+    <Button text="Add Comment" onAction="#handleAddComment"/>
+
+    <Button text="Like" onAction="#handleLike"/>
+    <Label fx:id="likesLabel" text="Likes: 0"/>
+
+    <Separator/>
+    <Button text="Back to Profile" onAction="#handleBack"/>
+</VBox>
+-----------------------------------------
+
+D:\DEVOPS\DEBI\dumb\Project\Social_Media\src>(
+echo name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\resources\com\example\social_media\post.fxml  
+ type "D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\resources\com\example\social_media\post.fxml"  
+ echo ----------------------------------------- 
+) 
+name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\resources\com\example\social_media\post.fxml
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.collections.FXCollections?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<?import java.lang.String?>
+
+<VBox xmlns="http://javafx.com/javafx/8"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.social_media.controller.PostController"
+      spacing="10" alignment="CENTER"
+      style="-fx-background-color: #f5f5f5;"
+      prefWidth="500" prefHeight="600">
+
+    <Label text="Create a New Post" style="-fx-font-size: 18;"/>
+
+    <TextArea fx:id="contentArea" promptText="What's on your mind?"
+              style="-fx-font-size: 14; -fx-pref-width:400; -fx-pref-height:100;"/>
+
+    <Button onAction="#handleChooseImage" text="Choose Image"
+            style="-fx-font-size: 14;">
+        <graphic>
+            <FontIcon iconLiteral="fa-camera" iconSize="18" style="-fx-icon-color: #FFF;"/>
+        </graphic>
+    </Button>
+
+    <ImageView fx:id="imagePreview" fitWidth="200" preserveRatio="true" />
+
+    <ComboBox fx:id="privacyCombo">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="public"/>
+                <String fx:value="friends-only"/>
+                <String fx:value="private"/>
+            </FXCollections>
+        </items>
+    </ComboBox>
+
+    <Button onAction="#handlePost" text="Post"
+            style="-fx-font-size: 14;">
+        <graphic>
+            <FontIcon iconLiteral="fa-paper-plane" iconSize="18" style="-fx-icon-color: #FFF;"/>
+        </graphic>
+    </Button>
+
+    <Separator/>
+
+    <Label text="Your Posts" style="-fx-font-size: 14;" />
+    <ListView fx:id="postsListView"
+              style="-fx-pref-width:400; -fx-pref-height:200;" />
+
+    <Button onAction="#handleBack" text="Back to Profile"
+            style="-fx-font-size: 14;">
+        <graphic>
+            <FontIcon iconLiteral="fa-arrow-left" iconSize="18" style="-fx-icon-color: #FFF;"/>
+        </graphic>
+    </Button>
+
+</VBox>
+-----------------------------------------
+
+D:\DEVOPS\DEBI\dumb\Project\Social_Media\src>(
+echo name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\resources\com\example\social_media\profile.fxml  
+ type "D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\resources\com\example\social_media\profile.fxml"  
+ echo ----------------------------------------- 
+) 
+name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\resources\com\example\social_media\profile.fxml
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.paint.Color?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.social_media.controller.ProfileController"
+            prefHeight="600.0"
+            prefWidth="1000.0"
+            style="-fx-background-color: #f5f5f5;">
+
+    <!-- Top bar with App Title, Search, NewsFeed, Friends, MyProfile, Logout -->
+    <top>
+        <GridPane hgap="10" style="-fx-background-color: white;">
+            <columnConstraints>
+                <ColumnConstraints/>
+                <ColumnConstraints/>
+                <ColumnConstraints/>
+                <ColumnConstraints/>
+                <ColumnConstraints/>
+                <ColumnConstraints/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints/>
+            </rowConstraints>
+            <padding>
+                <Insets top="15" bottom="15" left="15" right="15"/>
+            </padding>
+            <children>
+
+                <Text text="SOCIAL APP"
+                      GridPane.columnIndex="0"
+                      strokeWidth="0.0">
+                    <font>
+                        <Font name="System Bold" size="20"/>
+                    </font>
+                    <fill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                            <stops>
+                                <Stop offset="0.0" color="#5faeff"/>
+                                <Stop offset="1.0" color="#33ddbb"/>
+                            </stops>
+                        </LinearGradient>
+                    </fill>
+                </Text>
+
+                <!-- Search field + button -->
+                <TextField fx:id="searchField"
+                           promptText="Search"
+                           GridPane.columnIndex="1"/>
+                <Button text="Search"
+                        onAction="#handleSearch"
+                        GridPane.columnIndex="2"/>
+
+                <!-- Buttons for NewsFeed & Friends -->
+                <Button text="News Feed"
+                        onAction="#goToNewsFeed"
+                        GridPane.columnIndex="3"/>
+                <Button text="Friends"
+                        onAction="#goToFriends"
+                        GridPane.columnIndex="4"/>
+
+                <!-- Right side: user info + logout button -->
+                <HBox alignment="CENTER" spacing="10" GridPane.columnIndex="5">
+                    <children>
+                        <Circle fill="DODGERBLUE" radius="15" stroke="WHITE" />
+                        <Text fx:id="userHeader" strokeWidth="0.0" text="WelcomeUser">
+                            <font>
+                                <Font size="16"/>
+                            </font>
+                        </Text>
+                        <Button text="My Profile"
+                                onAction="#showProfile"/>
+                        <Button text="Logout"
+                                style="-fx-background-color: #ff1133;"
+                                onAction="#handleLogout"/>
+                    </children>
+                </HBox>
+            </children>
+        </GridPane>
+    </top>
+
+    <!-- Center area: a small "Create Post" panel on the left, or center -->
+    <center>
+        <GridPane>
+            <padding>
+                <Insets top="20" bottom="20" left="20" right="20"/>
+            </padding>
+            <rowConstraints>
+                <RowConstraints/>
+                <RowConstraints/>
+            </rowConstraints>
+            <columnConstraints>
+                <ColumnConstraints/>
+            </columnConstraints>
+            <children>
+
+                <VBox style="-fx-background-color: white; -fx-background-radius: 10;"
+                      spacing="15"
+                      GridPane.rowIndex="0"
+                      GridPane.columnIndex="0">
+                    <padding>
+                        <Insets top="20" bottom="20" left="20" right="20"/>
+                    </padding>
+                    <children>
+                        <Text text="Create Post"
+                              fill="#2c2c2c"
+                              strokeWidth="0.0">
+                            <font>
+                                <Font size="18"/>
+                            </font>
+                        </Text>
+                        <TextField fx:id="postField"
+                                   promptText="What's on your mind?"
+                                   style="-fx-font-size: 14;"/>
+                        <Button text="Post" onAction="#handleCreatePost" style="-fx-font-size: 14;"/>
+                    </children>
+                </VBox>
+
+            </children>
+        </GridPane>
+    </center>
+</BorderPane>
+-----------------------------------------
+
+D:\DEVOPS\DEBI\dumb\Project\Social_Media\src>(
+echo name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\resources\com\example\social_media\profilemanagement.fxml  
+ type "D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\resources\com\example\social_media\profilemanagement.fxml"  
+ echo ----------------------------------------- 
+) 
+name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\resources\com\example\social_media\profilemanagement.fxml
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx/8"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.social_media.controller.ProfileManagementController"
+      spacing="15" alignment="CENTER"
+      style="-fx-background-color: #f5f5f5;"
+      prefWidth="500" prefHeight="600">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+    <children>
+        <Label text="Profile Settings" style="-fx-font-size: 24; -fx-font-weight: bold;"/>
+
+        <Label text="Username:" style="-fx-font-size: 14; -fx-font-weight: bold;"/>
+        <Label fx:id="usernameLabel" style="-fx-font-size: 14;"/>
+
+        <Separator/>
+
+        <Label text="Profile Picture:" style="-fx-font-size: 14; -fx-font-weight: bold;"/>
+        <ImageView fx:id="profileImageView" fitWidth="150" preserveRatio="true"/>
+        <Button text="Choose Picture" onAction="#handleChooseProfilePic" style="-fx-font-size: 14;"/>
+
+        <Separator/>
+
+        <Label text="Bio:" style="-fx-font-size: 14; -fx-font-weight: bold;"/>
+        <TextArea fx:id="bioField" style="-fx-font-size: 14; -fx-pref-width:300; -fx-pref-height:80;"/>
+
+        <Separator/>
+
+        <Button text="Save Profile" onAction="#handleSaveProfile" style="-fx-font-size: 14;"/>
+        <Button text="Back" onAction="#handleBack" style="-fx-font-size: 14;"/>
+    </children>
+</VBox>
+-----------------------------------------
+
+D:\DEVOPS\DEBI\dumb\Project\Social_Media\src>(
+echo name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\resources\com\example\social_media\registration.fxml  
+ type "D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\resources\com\example\social_media\registration.fxml"  
+ echo ----------------------------------------- 
+) 
+name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\resources\com\example\social_media\registration.fxml
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx/8"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.social_media.controller.RegistrationController"
+      alignment="CENTER"
+      spacing="15"
+      prefWidth="400"
+      style="-fx-background-color: white;">
+  <padding>
+    <Insets bottom="30" left="30" right="30" top="30"/>
+  </padding>
+  <children>
+    <Label text="Create Account">
+      <font>
+        <Font name="System Bold" size="28.0" />
+      </font>
+    </Label>
+    <Label text="Fill in your details" textFill="#666666">
+      <font>
+        <Font size="14.0" />
+      </font>
+    </Label>
+    <Separator prefWidth="200" />
+
+    <VBox spacing="5">
+      <children>
+        <Label text="Username" />
+        <TextField fx:id="txtUser" />
+      </children>
+    </VBox>
+
+    <VBox spacing="5">
+      <children>
+        <Label text="Email" />
+        <TextField fx:id="txtEmail" />
+      </children>
+    </VBox>
+
+    <VBox spacing="5">
+      <children>
+        <Label text="Password" />
+        <PasswordField fx:id="txtPass" />
+      </children>
+    </VBox>
+
+    <VBox spacing="5">
+      <children>
+        <Label text="Confirm Password" />
+        <PasswordField fx:id="txtPassConfirm" />
+      </children>
+    </VBox>
+
+    <Button fx:id="btnRegister"
+            text="REGISTER"
+            onAction="#handleRegister"
+            prefWidth="340"/>
+
+    <Hyperlink text="Already have an account? Sign in"
+               onAction="#handleBack"/>
+  </children>
+</VBox>
+-----------------------------------------
+
+D:\DEVOPS\DEBI\dumb\Project\Social_Media\src>(
+echo name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\resources\com\example\social_media\styles.css  
+ type "D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\resources\com\example\social_media\styles.css"  
+ echo ----------------------------------------- 
+) 
+name of the file: D:\DEVOPS\DEBI\dumb\Project\Social_Media\src\main\resources\com\example\social_media\styles.css
+/* Example dark-on-light or themed styling */
+.root {
+    -fx-font-family: 'Segoe UI', sans-serif;
+}
+
+/* Buttons */
+.button {
+    -fx-background-color: #2196F3;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 12px;
+    -fx-background-radius: 5px;
+    -fx-font-weight: bold;
+}
+
+.button:hover {
+    -fx-background-color: #1976D2;
+}
+
+/* TextFields & Comboboxes */
+.text-field, .combo-box {
+    -fx-background-color: #f5f5f5;
+    -fx-border-color: transparent;
+    -fx-padding: 12px;
+    -fx-font-size: 14px;
+    -fx-background-radius: 5px;
+}
+
+/* Hyperlinks */
+.hyperlink {
+    -fx-text-fill: #2196F3;
+    -fx-border-color: transparent;
+}
+
+/* A special style for friend heading, if you want it distinct */
+.friend-heading {
+    -fx-font-size: 18px;
+    -fx-text-fill: #2C3E50;
+    -fx-font-weight: bolder;
+}
+-----------------------------------------

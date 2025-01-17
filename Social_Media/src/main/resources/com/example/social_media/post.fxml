@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.collections.FXCollections?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<?import java.lang.String?>
+
+<VBox xmlns="http://javafx.com/javafx/8"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.social_media.controller.PostController"
+      spacing="10" alignment="CENTER"
+      style="-fx-background-color: #f5f5f5;"
+      prefWidth="500" prefHeight="600">
+
+    <Label text="Create a New Post" style="-fx-font-size: 18;"/>
+
+    <TextArea fx:id="contentArea" promptText="What's on your mind?"
+              style="-fx-font-size: 14; -fx-pref-width:400; -fx-pref-height:100;"/>
+
+    <Button onAction="#handleChooseImage" text="Choose Image"
+            style="-fx-font-size: 14;">
+        <graphic>
+            <FontIcon iconLiteral="fa-camera" iconSize="18" style="-fx-icon-color: #FFF;"/>
+        </graphic>
+    </Button>
+
+    <ImageView fx:id="imagePreview" fitWidth="200" preserveRatio="true" />
+
+    <ComboBox fx:id="privacyCombo">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="public"/>
+                <String fx:value="friends-only"/>
+                <String fx:value="private"/>
+            </FXCollections>
+        </items>
+    </ComboBox>
+
+    <Button onAction="#handlePost" text="Post"
+            style="-fx-font-size: 14;">
+        <graphic>
+            <FontIcon iconLiteral="fa-paper-plane" iconSize="18" style="-fx-icon-color: #FFF;"/>
+        </graphic>
+    </Button>
+
+    <Separator/>
+
+    <Label text="Your Posts" style="-fx-font-size: 14;" />
+    <ListView fx:id="postsListView"
+              style="-fx-pref-width:400; -fx-pref-height:200;" />
+
+    <Button onAction="#handleBack" text="Back to Profile"
+            style="-fx-font-size: 14;">
+        <graphic>
+            <FontIcon iconLiteral="fa-arrow-left" iconSize="18" style="-fx-icon-color: #FFF;"/>
+        </graphic>
+    </Button>
+
+</VBox>

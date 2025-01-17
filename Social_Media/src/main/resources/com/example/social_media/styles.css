@@ -1,0 +1,40 @@
+/* Example dark-on-light or themed styling */
+.root {
+    -fx-font-family: 'Segoe UI', sans-serif;
+}
+
+/* Buttons */
+.button {
+    -fx-background-color: #2196F3;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 12px;
+    -fx-background-radius: 5px;
+    -fx-font-weight: bold;
+}
+
+.button:hover {
+    -fx-background-color: #1976D2;
+}
+
+/* TextFields & Comboboxes */
+.text-field, .combo-box {
+    -fx-background-color: #f5f5f5;
+    -fx-border-color: transparent;
+    -fx-padding: 12px;
+    -fx-font-size: 14px;
+    -fx-background-radius: 5px;
+}
+
+/* Hyperlinks */
+.hyperlink {
+    -fx-text-fill: #2196F3;
+    -fx-border-color: transparent;
+}
+
+/* A special style for friend heading, if you want it distinct */
+.friend-heading {
+    -fx-font-size: 18px;
+    -fx-text-fill: #2C3E50;
+    -fx-font-weight: bolder;
+}
