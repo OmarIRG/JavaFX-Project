@@ -1,48 +1,64 @@
-# Social Media JavaFX Project
-
-A **desktop-based** social media application built with **JavaFX** and **MySQL**. It supports user registration, login, profile management (including profile pictures and bio), posting (with images), a news feed, likes/comments, and basic friend management.
 
 ---
 
-## Features
+## Database Setup
 
-1. **User Registration & Login**  
-   - Secure password hashing with BCrypt (`jbcrypt`).  
-   - MySQL-based user storage (username, email, password).
+1. **Create a MySQL database** (e.g., `social_media_app`).
+2. Run or ensure the following tables exist (example schema):
+   ```sql
+   CREATE TABLE users (
+       user_id INT AUTO_INCREMENT PRIMARY KEY,
+       username VARCHAR(255) NOT NULL UNIQUE,
+       email VARCHAR(255) NOT NULL UNIQUE,
+       password_hash VARCHAR(255) NOT NULL
+   );
 
-2. **Profile Management**  
-   - Edit full name, bio, and profile picture.  
-   - Updates stored in the `profiles` table.
+   CREATE TABLE profiles (
+       profile_id INT AUTO_INCREMENT PRIMARY KEY,
+       user_id INT NOT NULL,
+       full_name VARCHAR(255),
+       bio TEXT,
+       profile_picture LONGBLOB,
+       updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+       FOREIGN KEY (user_id) REFERENCES users(user_id)
+   );
 
-3. **Posting**  
-   - Create text-based or image-based posts.  
-   - Posts saved in MySQL with optional image attachments.
+   CREATE TABLE posts (
+       post_id INT AUTO_INCREMENT PRIMARY KEY,
+       user_id INT NOT NULL,
+       content TEXT,
+       image_data LONGBLOB,
+       privacy_level VARCHAR(50),
+       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+       FOREIGN KEY (user_id) REFERENCES users(user_id)
+   );
 
-4. **News Feed**  
-   - Shows all **public** posts.  
-   - Allows commenting and liking.
+   CREATE TABLE comments (
+       comment_id INT AUTO_INCREMENT PRIMARY KEY,
+       post_id INT NOT NULL,
+       user_id INT NOT NULL,
+       content TEXT,
+       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+       FOREIGN KEY (post_id) REFERENCES posts(post_id),
+       FOREIGN KEY (user_id) REFERENCES users(user_id)
+   );
 
-5. **Likes & Comments**  
-   - Users can like others’ posts (stored in `likes` table).  
-   - Users can add comments (stored in `comments` table).
+   CREATE TABLE likes (
+       like_id INT AUTO_INCREMENT PRIMARY KEY,
+       post_id INT NOT NULL,
+       user_id INT NOT NULL,
+       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+       UNIQUE KEY unique_like (post_id, user_id),
+       FOREIGN KEY (post_id) REFERENCES posts(post_id),
+       FOREIGN KEY (user_id) REFERENCES users(user_id)
+   );
 
-6. **Friend System**  
-   - Send friend requests (pending/accept).  
-   - View friends’ profiles and their public posts.
-
-7. **Post Details**  
-   - A dedicated view for each post, showing who liked it, comments, and a larger post image.
-
----
-
-## Tech Stack
-
-- **Java 17+** (works on JDK 17, tested up to JDK 23).
-- **JavaFX 17** for the UI.
-- **MySQL** 8.x for data storage.
-- **Maven** for build & dependency management (`pom.xml`).
-
----
-
-## Project Structure
-
+   CREATE TABLE friendships (
+       friendship_id INT AUTO_INCREMENT PRIMARY KEY,
+       user_id_1 INT NOT NULL,
+       user_id_2 INT NOT NULL,
+       status VARCHAR(20) DEFAULT 'pending',
+       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+       FOREIGN KEY (user_id_1) REFERENCES users(user_id),
+       FOREIGN KEY (user_id_2) REFERENCES users(user_id)
+   );
