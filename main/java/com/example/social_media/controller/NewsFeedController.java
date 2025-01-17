@@ -1,4 +1,5 @@
 package com.example.social_media.controller;
+import javafx.scene.layout.VBox;
 
 import com.example.social_media.Post;
 import com.example.social_media.Comment;
@@ -10,14 +11,14 @@ import com.example.social_media.service.UserService;
 import com.example.social_media.util.SceneManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.Image;
 import javafx.event.ActionEvent;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.io.ByteArrayInputStream;
 import java.util.List;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 
 public class NewsFeedController {
 
@@ -51,6 +52,7 @@ public class NewsFeedController {
     private void setupFeedListView() {
         feedListView.setCellFactory(lv -> new ListCell<>() {
             private final ImageView imageView = new ImageView();
+            private final Button detailsBtn = new Button("View Details");
 
             @Override
             protected void updateItem(Post item, boolean empty) {
@@ -59,23 +61,35 @@ public class NewsFeedController {
                     setText(null);
                     setGraphic(null);
                 } else {
-                    String authorName = "[Unknown]";
-                    var author = userService.getUserById(item.getUserId());
-                    if (author != null) {
-                        authorName = author.getUsername();
-                    }
+                    User author = userService.getUserById(item.getUserId());
+                    String authorName = (author != null) ? author.getUsername() : "[Unknown]";
                     String text = "Posted by: " + authorName + "\n"
                             + "Content: " + item.getContent() + "\n"
                             + "Privacy: " + item.getPrivacyLevel();
                     setText(text);
 
+                    // Show image (bigger size, e.g., width=200)
                     if (item.getImageData() != null) {
-                        Image img = new Image(new ByteArrayInputStream(item.getImageData()), 50, 0, true, true);
+                        Image img = new Image(
+                                new ByteArrayInputStream(item.getImageData()),
+                                200, // width
+                                0,
+                                true,
+                                true
+                        );
                         imageView.setImage(img);
-                        setGraphic(imageView);
                     } else {
-                        setGraphic(null);
+                        imageView.setImage(null);
                     }
+
+                    // “View Details” button to open the post detail scene
+                    detailsBtn.setOnAction(e -> openPostDetails(item));
+
+                    // Put both image + button in an HBox or something
+                    // but for simplicity we can just setGraphic(imageView) or a small layout.
+                    // Example: let's just stack them vertically in a VBox
+                    VBox layout = new VBox(5, imageView, detailsBtn);
+                    setGraphic(layout);
                 }
             }
         });
@@ -89,6 +103,14 @@ public class NewsFeedController {
         });
     }
 
+    private void openPostDetails(Post post) {
+        PostDetailController controller =
+                SceneManager.switchRoot("/com/example/social_media/postdetail.fxml");
+        if (controller != null) {
+            controller.initData(currentUser, post);
+        }
+    }
+
     private void setupCommentListView() {
         commentListView.setCellFactory(lv -> new ListCell<>() {
             @Override
@@ -97,7 +119,7 @@ public class NewsFeedController {
                 if (empty || item == null) {
                     setText(null);
                 } else {
-                    var commenter = userService.getUserById(item.getUserId());
+                    User commenter = userService.getUserById(item.getUserId());
                     String commenterName = (commenter != null) ? commenter.getUsername() : "[Unknown]";
                     setText(commenterName + ": " + item.getContent());
                 }
@@ -128,6 +150,7 @@ public class NewsFeedController {
         c.setUserId(currentUser.getUserId());
         c.setContent(txt);
         commentService.addComment(c);
+
         commentField.clear();
         loadComments(selected);
     }

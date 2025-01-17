@@ -10,8 +10,9 @@
 
     <Label text="Luxurious Friend Management"/>
 
-    <Label text="Send Friend Request (user_id):"/>
-    <TextField fx:id="friendIdField"/>
+    <!-- CHANGED label to say (username) -->
+    <Label text="Send Friend Request (username):"/>
+    <TextField fx:id="friendIdField" promptText="Friend's Username"/>
     <Button text="Send Request" onAction="#handleSendRequest"/>
 
     <Separator/>
@@ -25,7 +26,6 @@
     <Label text="My Friends:"/>
     <ListView fx:id="friendsListView" style="-fx-pref-width:350; -fx-pref-height:100;"/>
 
-    <!-- Must import HBox to avoid "HBox is not a valid type" -->
     <HBox spacing="10" alignment="CENTER">
         <Button text="View Profile" onAction="#handleViewFriendProfile"/>
         <Button text="Remove Friend" onAction="#handleRemoveFriend"/>

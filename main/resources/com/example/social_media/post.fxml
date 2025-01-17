@@ -9,16 +9,18 @@
 <VBox xmlns="http://javafx.com/javafx/8"
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.example.social_media.controller.PostController"
-      spacing="10" alignment="CENTER">
+      spacing="10" alignment="CENTER"
+      style="-fx-background-color: #f5f5f5;"
+      prefWidth="500" prefHeight="600">
 
     <Label text="Create a New Post" style="-fx-font-size: 18;"/>
 
-    <TextArea fx:id="contentArea" promptText="What's on your mind?" />
+    <TextArea fx:id="contentArea" promptText="What's on your mind?"
+              style="-fx-font-size: 14; -fx-pref-width:400; -fx-pref-height:100;"/>
 
-    <!-- Use a Font Awesome camera icon instead of 'mdi-image' -->
-    <Button onAction="#handleChooseImage" text="Choose Image">
+    <Button onAction="#handleChooseImage" text="Choose Image"
+            style="-fx-font-size: 14;">
         <graphic>
-            <!-- E.g., 'fa-camera' from the ikonli-fontawesome-pack -->
             <FontIcon iconLiteral="fa-camera" iconSize="18" style="-fx-icon-color: #FFF;"/>
         </graphic>
     </Button>
@@ -35,21 +37,22 @@
         </items>
     </ComboBox>
 
-    <Button onAction="#handlePost" text="Post">
+    <Button onAction="#handlePost" text="Post"
+            style="-fx-font-size: 14;">
         <graphic>
-            <!-- Another Font Awesome icon, e.g. 'fa-send' or 'fa-paper-plane' -->
             <FontIcon iconLiteral="fa-paper-plane" iconSize="18" style="-fx-icon-color: #FFF;"/>
         </graphic>
     </Button>
 
-    <Separator />
+    <Separator/>
 
     <Label text="Your Posts" style="-fx-font-size: 14;" />
-    <ListView fx:id="postsListView" style="-fx-pref-width:400; -fx-pref-height:200;" />
+    <ListView fx:id="postsListView"
+              style="-fx-pref-width:400; -fx-pref-height:200;" />
 
-    <Button onAction="#handleBack" text="Back to Profile">
+    <Button onAction="#handleBack" text="Back to Profile"
+            style="-fx-font-size: 14;">
         <graphic>
-            <!-- Use a Font Awesome arrow-left -->
             <FontIcon iconLiteral="fa-arrow-left" iconSize="18" style="-fx-icon-color: #FFF;"/>
         </graphic>
     </Button>

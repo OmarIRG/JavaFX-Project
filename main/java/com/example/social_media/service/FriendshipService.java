@@ -37,7 +37,6 @@ public class FriendshipService {
         }
     }
 
-    // Remove a friend or cancel a request
     public boolean removeFriend(int friendshipId) {
         String sql = "DELETE FROM friendships WHERE friendship_id=?";
         try (Connection conn = DBConnection.getConnection();

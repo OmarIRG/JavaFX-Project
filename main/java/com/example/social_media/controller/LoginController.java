@@ -4,45 +4,38 @@ import com.example.social_media.User;
 import com.example.social_media.service.UserService;
 import com.example.social_media.util.SceneManager;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 
 public class LoginController {
 
-    @FXML private TextField emailField;
-    @FXML private PasswordField passwordField;
+    @FXML private TextField txtUser;  // now holds the email
+    @FXML private PasswordField txtPass;
 
     private final UserService userService = new UserService();
 
     @FXML
     private void handleLoginAction() {
-        String email = emailField.getText();
-        String password = passwordField.getText();
-        if (email.isEmpty() || password.isEmpty()) {
-            showAlert("Validation Error", "Email or Password cannot be empty.");
+        if (txtUser.getText().isEmpty() || txtPass.getText().isEmpty()) {
+            new Alert(Alert.AlertType.ERROR, "Please fill in all fields").showAndWait();
             return;
         }
-
-        User user = userService.authenticate(email, password);
+        // We authenticate by email now
+        User user = userService.authenticate(txtUser.getText(), txtPass.getText());
         if (user != null) {
-            // Switch to profile
-            ProfileController profileCtrl = SceneManager.switchRoot("/com/example/social_media/profile.fxml");
-            if (profileCtrl != null) {
-                profileCtrl.initData(user);
+            ProfileController pc = (ProfileController)
+                    SceneManager.switchRoot("/com/example/social_media/profile.fxml");
+            if (pc != null) {
+                pc.initData(user);
             }
         } else {
-            showAlert("Login Failed", "Invalid email or password.");
+            new Alert(Alert.AlertType.ERROR, "Invalid email or password.").showAndWait();
         }
     }
 
     @FXML
     private void navigateToRegister() {
         SceneManager.switchRoot("/com/example/social_media/registration.fxml");
-    }
-
-    private void showAlert(String title, String msg) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(title);
-        alert.setContentText(msg);
-        alert.showAndWait();
     }
 }

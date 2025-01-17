@@ -1,59 +1,40 @@
+/* Example dark-on-light or themed styling */
 .root {
-    /* Dark gradient background */
-    -fx-background-color: linear-gradient(#1C1C1C, #2E2E2E);
-    -fx-font-family: "Segoe UI", Arial, sans-serif;
-    -fx-text-fill: #FFF;
-    -fx-padding: 20;
+    -fx-font-family: 'Segoe UI', sans-serif;
 }
 
-/* Label text color & size */
-.label {
-    -fx-text-fill: #EAEAEA;
-    -fx-font-size: 15px;
-    -fx-font-weight: bold;
-}
-
-/* Buttons with a dark style & icons can also appear if you embed them */
+/* Buttons */
 .button {
-    -fx-background-color: linear-gradient(#3A3A3A, #2B2B2B);
-    -fx-text-fill: #FFF;
+    -fx-background-color: #2196F3;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 12px;
+    -fx-background-radius: 5px;
     -fx-font-weight: bold;
-    -fx-border-color: #555;
-    -fx-border-width: 1;
-    -fx-border-radius: 4;
-    -fx-background-radius: 4;
-    -fx-padding: 8 18;
-    -fx-cursor: hand;
 }
+
 .button:hover {
-    -fx-background-color: linear-gradient(#4A4A4A, #3A3A3A);
-}
-.button:pressed {
-    -fx-background-color: #1F1F1F;
+    -fx-background-color: #1976D2;
 }
 
-/* Fields: dark background, white text */
-.text-field, .text-area, .combo-box, .password-field {
-    -fx-background-color: #333;
-    -fx-text-fill: #FFF;
-    -fx-background-radius: 4;
-    -fx-border-color: #666;
-    -fx-border-width: 1;
-    -fx-padding: 6 10;
-    -fx-font-size: 13px;
+/* TextFields & Comboboxes */
+.text-field, .combo-box {
+    -fx-background-color: #f5f5f5;
+    -fx-border-color: transparent;
+    -fx-padding: 12px;
+    -fx-font-size: 14px;
+    -fx-background-radius: 5px;
 }
 
-/* ListView for displaying posts in dark mode */
-.list-view {
-    -fx-background-color: #2A2A2A;
-    -fx-border-color: #555;
-    -fx-border-radius: 4;
-    -fx-background-radius: 4;
-    -fx-cell-size: 56;
-    -fx-text-fill: #FFF;
+/* Hyperlinks */
+.hyperlink {
+    -fx-text-fill: #2196F3;
+    -fx-border-color: transparent;
 }
 
-/* Optional ScrollBar styling */
-.scroll-bar {
-    -fx-background-color: #444;
+/* A special style for friend heading, if you want it distinct */
+.friend-heading {
+    -fx-font-size: 18px;
+    -fx-text-fill: #2C3E50;
+    -fx-font-weight: bolder;
 }

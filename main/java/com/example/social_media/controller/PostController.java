@@ -33,7 +33,6 @@ public class PostController {
     private byte[] chosenImageData;
     private ObservableList<Post> postObservableList = FXCollections.observableArrayList();
 
-    // Called from somewhere else (e.g. ProfileController) with user data
     public void initData(User user) {
         this.currentUser = user;
         if (privacyCombo != null) {
@@ -43,12 +42,10 @@ public class PostController {
     }
 
     private void refreshPosts() {
-        // Load current user’s posts from DB
         List<Post> userPosts = postService.getPostsByUser(currentUser.getUserId());
         postObservableList.setAll(userPosts);
         postsListView.setItems(postObservableList);
 
-        // Show basic info in the list
         postsListView.setCellFactory(lv -> new ListCell<>() {
             @Override
             protected void updateItem(Post item, boolean empty) {
@@ -56,7 +53,6 @@ public class PostController {
                 if (empty || item == null) {
                     setText(null);
                 } else {
-                    // fetch author username
                     var author = userService.getUserById(item.getUserId());
                     String authorName = (author != null) ? author.getUsername() : "[Unknown]";
                     setText("Posted by: " + authorName + "\n"
@@ -110,16 +106,15 @@ public class PostController {
         chosenImageData = null;
         imagePreview.setImage(null);
 
-        // Refresh the list
         refreshPosts();
     }
 
     @FXML
     private void handleBack() {
-        // Go back to profile screen
-        var profileCtrl = SceneManager.switchRoot("/com/example/social_media/profile.fxml");
-        if (profileCtrl instanceof ProfileController) {
-            ((ProfileController) profileCtrl).initData(currentUser);
+        // Cast to ProfileController so we can call initData(...)
+        ProfileController profileCtrl = (ProfileController) SceneManager.switchRoot("/com/example/social_media/profile.fxml");
+        if (profileCtrl != null) {
+            profileCtrl.initData(currentUser);
         }
     }
 

@@ -51,7 +51,6 @@ public class PostService {
         return list;
     }
 
-    // For the News Feed (public posts)
     public List<Post> getAllPublicPosts() {
         List<Post> list = new ArrayList<>();
         String sql = "SELECT post_id, user_id, content, image_data, privacy_level, created_at "

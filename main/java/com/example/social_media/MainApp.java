@@ -16,6 +16,9 @@ public class MainApp extends Application {
         // Initialize SceneManager with a single scene
         SceneManager.init(primaryStage, loginRoot);
 
+        // Fix the window size, no resizing
+        primaryStage.setResizable(false);
+
         primaryStage.setTitle("Luxurious Social Media");
     }
 

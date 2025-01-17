@@ -16,13 +16,19 @@ public class SceneManager {
         primaryStage = stage;
         mainScene = new Scene(initialRoot);
 
-        // Attach a single stylesheet for luxurious styling
+        // Attach your global stylesheet
         mainScene.getStylesheets().add(
                 SceneManager.class.getResource("/com/example/social_media/styles.css").toExternalForm()
         );
 
         primaryStage.setScene(mainScene);
-        primaryStage.setMaximized(true);
+
+        // Removed setMaximized(true) and set the window to a fixed size:
+        primaryStage.setWidth(1000);
+        primaryStage.setHeight(700);
+        primaryStage.centerOnScreen();
+        primaryStage.setResizable(false);
+
         primaryStage.show();
     }
 
@@ -31,7 +37,12 @@ public class SceneManager {
             FXMLLoader loader = new FXMLLoader(SceneManager.class.getResource(fxmlPath));
             Parent newRoot = loader.load();
             mainScene.setRoot(newRoot);
-            primaryStage.setMaximized(true);
+
+            // Also remove setMaximized(true) here:
+            primaryStage.setWidth(1000);
+            primaryStage.setHeight(700);
+            primaryStage.centerOnScreen();
+
             return loader.getController();
         } catch (IOException e) {
             e.printStackTrace();

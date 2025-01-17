@@ -19,7 +19,7 @@ public class ProfileService {
                 Profile p = new Profile();
                 p.setProfileId(rs.getInt("profile_id"));
                 p.setUserId(rs.getInt("user_id"));
-                p.setFullName(rs.getString("full_name"));
+                p.setFullName(rs.getString("full_name"));   // Load from DB
                 p.setBio(rs.getString("bio"));
                 p.setProfilePicture(rs.getBytes("profile_picture"));
                 Timestamp ts = rs.getTimestamp("updated_at");
@@ -39,7 +39,7 @@ public class ProfileService {
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, profile.getUserId());
-            pstmt.setString(2, profile.getFullName());
+            pstmt.setString(2, profile.getFullName());   // Insert full_name
             pstmt.setString(3, profile.getBio());
             pstmt.setBytes(4, profile.getProfilePicture());
             pstmt.executeUpdate();
@@ -53,7 +53,7 @@ public class ProfileService {
                 + "updated_at=CURRENT_TIMESTAMP WHERE profile_id=?";
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, profile.getFullName());
+            pstmt.setString(1, profile.getFullName());   // Update full_name
             pstmt.setString(2, profile.getBio());
             pstmt.setBytes(3, profile.getProfilePicture());
             pstmt.setInt(4, profile.getProfileId());

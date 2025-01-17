@@ -4,7 +4,7 @@ public class User {
     private int userId;
     private String username;
     private String email;
-    private String passwordHash;
+    private String passwordHash; // hashed password
 
     public User() {}
 

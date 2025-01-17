@@ -8,14 +8,13 @@ import com.example.social_media.util.SceneManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.event.ActionEvent;
-
-import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import java.util.List;
 
 public class FriendsController {
 
-    @FXML private TextField friendIdField;
+    @FXML private TextField friendIdField; // now actually a username
     @FXML private ListView<Friendship> pendingListView;
     @FXML private ListView<Friendship> friendsListView;
 
@@ -74,22 +73,25 @@ public class FriendsController {
 
     @FXML
     private void handleSendRequest(ActionEvent event) {
-        String friendIdStr = friendIdField.getText().trim();
-        if (friendIdStr.isEmpty()) {
-            showAlert("Error", "Please enter user_id.");
+        String friendUsername = friendIdField.getText().trim();
+        if (friendUsername.isEmpty()) {
+            showAlert("Error", "Please enter friend's username.");
             return;
         }
-        try {
-            int friendId = Integer.parseInt(friendIdStr);
-            boolean ok = friendshipService.sendFriendRequest(currentUser.getUserId(), friendId);
-            if (ok) {
-                showAlert("Success", "Request sent!");
-                refreshPending();
-            } else {
-                showAlert("Error", "Failed or duplicate request.");
-            }
-        } catch (NumberFormatException e) {
-            showAlert("Error", "User_id must be integer.");
+
+        // look up that user
+        User friendUser = userService.getUserByUsername(friendUsername);
+        if (friendUser == null) {
+            showAlert("Error", "No user found with username: " + friendUsername);
+            return;
+        }
+
+        boolean ok = friendshipService.sendFriendRequest(currentUser.getUserId(), friendUser.getUserId());
+        if (ok) {
+            showAlert("Success", "Request sent!");
+            refreshPending();
+        } else {
+            showAlert("Error", "Failed or duplicate request.");
         }
     }
 
@@ -110,7 +112,6 @@ public class FriendsController {
         }
     }
 
-    // 1) View a friend's profile & posts
     @FXML
     private void handleViewFriendProfile(ActionEvent event) {
         Friendship selected = friendsListView.getSelectionModel().getSelectedItem();
@@ -121,14 +122,12 @@ public class FriendsController {
         int friendId = (selected.getUserId1() == currentUser.getUserId())
                 ? selected.getUserId2() : selected.getUserId1();
 
-        // Switch to friendprofile.fxml
         var friendProfileCtrl = SceneManager.switchRoot("/com/example/social_media/friendprofile.fxml");
         if (friendProfileCtrl instanceof FriendProfileController) {
             ((FriendProfileController) friendProfileCtrl).initData(currentUser, friendId);
         }
     }
 
-    // 2) Remove friend from DB
     @FXML
     private void handleRemoveFriend(ActionEvent event) {
         Friendship selected = friendsListView.getSelectionModel().getSelectedItem();
@@ -147,9 +146,9 @@ public class FriendsController {
 
     @FXML
     private void handleBack(ActionEvent event) {
-        var pc = SceneManager.switchRoot("/com/example/social_media/profile.fxml");
-        if (pc instanceof ProfileController profileController) {
-            profileController.initData(currentUser);
+        ProfileController pc = (ProfileController) SceneManager.switchRoot("/com/example/social_media/profile.fxml");
+        if (pc != null) {
+            pc.initData(currentUser);
         }
     }
 
